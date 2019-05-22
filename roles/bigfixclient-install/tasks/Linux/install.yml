@@ -1,0 +1,27 @@
+---
+- name: Copy "{{source_bigfix_package}}" file to Server
+  copy:
+   src: "{{source_bigfix_package}}"
+   dest: "/tmp/{{source_bigfix_package}}"
+
+
+- include: "install/{{ ansible_os_family }}.yml"
+#
+# Play for creating /etc/opt/BESClient directory on end point
+- name: Create /etc/opt/BESClient directory
+  file: path=/etc/opt/BESClient state=directory
+
+# Play for copying actionsite file to end point under /etc/opt/BESClient location and changing permission to 600
+- name: Copy "{{actionsite}}" to /etc/opt/BESClient Directory and changed file "{{actionsite}}" permission to 600
+  copy:
+   src: "{{actionsite}}"
+   dest: /etc/opt/BESClient/{{actionsite}}
+   owner: root
+   group: root
+   mode: 0600
+
+ # Play For copying besclient file to end point under /var/opt/BESClient
+- name: Copy "{{besclient}}" to /var/opt/BESClient Directory
+  copy:
+   src:  "{{besclient}}"
+   dest: /var/opt/BESClient/{{besclient}}

@@ -1,0 +1,3 @@
+---
+source_bigfix_package: BigFix-BES-Client-9.5.8.38.exe
+inst_dir: 'C:\Program Files (x86)\BigFix Enterprise\BES Client\'

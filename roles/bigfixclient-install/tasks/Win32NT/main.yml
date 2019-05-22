@@ -1,0 +1,13 @@
+---
+
+- name: Load OS specific vars
+  include_vars: "{{ ansible_distribution }}-{{ ansible_distribution_version.split('.')[0] }}-{{ ansible_architecture }}.yml"
+
+
+- name: Check for BigFix
+  win_stat: path="{{ inst_dir }}"
+  register: bigfix_installed
+
+- include: install.yml
+  when: not bigfix_installed.stat.exists
+

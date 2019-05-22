@@ -1,0 +1,7 @@
+---
+bigfix_client_conf_dir: /etc/opt/BESClient
+bigfix_client_service_name: besclient
+masthead: masthead.afxm
+actionsite: actionsite.afxm
+besclient: besclient.config
+# defaults file for bigfixclient-install

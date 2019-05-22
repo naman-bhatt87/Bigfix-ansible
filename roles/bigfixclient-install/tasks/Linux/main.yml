@@ -1,0 +1,12 @@
+---
+
+- name: Check for BigFix (Linux)
+  shell: rpm -qa  BESAgent | grep BESAgent
+  ignore_errors: yes
+  register: bigfix_installed
+
+- include: install.yml
+  when: bigfix_installed is failed
+
+- name: start service manually
+  command: /etc/init.d/besclient start

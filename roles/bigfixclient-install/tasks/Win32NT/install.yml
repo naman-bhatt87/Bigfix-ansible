@@ -1,0 +1,19 @@
+---
+- name: Copy "{{source_bigfix_package}}" file to Server
+  win_copy:
+   src: "{{source_bigfix_package}}"
+   dest: 'C:\Windows\Temp\{{source_bigfix_package}}'
+
+# Play for copying masthead file to end point  
+- name: Copy "{{masthead}}"  
+  win_copy:
+   src: "{{masthead}}"
+   dest: 'C:\Windows\Temp\{{masthead}}'
+
+
+# Play to install bigfix agent on end-point
+- name: Install Bigfix Agent on windows
+ #  win_package: 
+ #    path: 'C:\Windows\Temp\{{source_bigfix_package}} /s /v/qn'
+  win_command: 'C:\Windows\Temp\{{source_bigfix_package}} /s /v/qn'
+#

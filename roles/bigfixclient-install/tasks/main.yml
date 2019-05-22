@@ -1,0 +1,8 @@
+---
+
+- name: Load OS specific vars
+  include_vars: "{{ ansible_distribution }}-{{ ansible_distribution_version.split('.')[0] }}-{{ ansible_architecture }}.yml"
+
+
+- include: "{{ansible_system}}/main.yml"
+

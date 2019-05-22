@@ -1,0 +1,4 @@
+---
+
+- name: Install BigFix Client
+  yum: name="/tmp/{{source_bigfix_package}}" state=present

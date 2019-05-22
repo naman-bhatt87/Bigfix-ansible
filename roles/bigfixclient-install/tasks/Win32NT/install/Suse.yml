@@ -1,0 +1,4 @@
+---
+
+- name: Install BigFix Client
+  command: "rpm -ivh /tmp/{{ source_bigfix_package }}"
