@@ -45,7 +45,6 @@
 
 [lin:vars]
 ansible_user=naman
-ansible_password=*******
 ansible_become=yes 
 
 [win]
@@ -53,6 +52,5 @@ ansible_become=yes
 
 [win:vars]
 ansible_user=Administrator
-ansible_password=**********
 ansible_connection=winrm
 ansible_winrm_server_cert_validation=ignore
